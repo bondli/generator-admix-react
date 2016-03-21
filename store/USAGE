@@ -1,0 +1,8 @@
+Description:
+    Creates a new store
+
+Example:
+    yo admix-react:store thing
+
+    This will create:
+        app/stores/thing.js

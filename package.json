@@ -1,0 +1,65 @@
+{
+  "name": "generator-admix-react",
+  "version": "0.0.1",
+  "description": "Yeoman generator for admix-react project",
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "framework",
+    "component",
+    "front-end",
+    "app"
+  ],
+  "author": "bondli",
+  "main": "app/index.js",
+  "files": [
+    "app",
+    "page",
+    "action",
+    "component",
+    "store",
+    "templates",
+    "script-base.js",
+    "util.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bondli/generator-admix-react.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "yosay": "^0.2.0",
+    "chalk": "^0.4.0",
+    "wiredep": "~1.0.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-conventional-changelog": "~1.1.0",
+    "load-grunt-tasks": "~0.3.0",
+    "semver": "~2.3.0",
+    "underscore.string": "~2.3.1",
+    "grunt-release": "~0.6.0"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "BSD"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/bondli/generator-admix-react/issues"
+  },
+  "homepage": "https://github.com/bondli/generator-admix-react",
+  "license": "MIT"
+}

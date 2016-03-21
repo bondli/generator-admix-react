@@ -1,0 +1,338 @@
+//colors
+$bodyBgColor: #eeeeee;
+$toolbarBgColor: #f8f8f8;
+$btnColor: #ff6600;
+$btnPressColor: #ff4400;
+$checkboxColor: #66668a;
+$borderColor: #dddddd;
+$fontColor: #31313b;
+$linkColor: #007aff;
+$labelColor: #999999;
+$tipsColor: #cccccc;
+$disabledColor: #afafb5;
+
+body {
+    background: $bodyBgColor;
+    font-size: 14px;
+    min-width: 980px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+    color: $fontColor;
+    text-decoration: none;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+//头部区域
+#header{
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px #e5e5e5 solid;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    h1{
+        float: left;
+        background: #F93B3B;
+        width: 240px;
+        height: 79px;
+        line-height: 39px;
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+        font-size: 24px;
+        i {
+            margin-right: 3px;
+        }
+        s {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            overflow: hidden;
+            font-size: 0;
+            margin: 4px;
+            background: #fff;
+        }
+    }
+    .header-logo {
+        //transition: width 0.5s;
+        div {
+            display: inline-block;
+            width: 134px;
+        }
+        i {
+            font-size: 58px;
+            float: left;
+            margin-top: 2px;
+            margin-left: -6px;
+        }
+        &.sidebarClose {
+            width: 80px;
+            overflow: hidden;
+            div {
+                display: none;
+            }
+            .icon-logo {
+                font-size: 65px!important;
+                margin-left: -14px;
+            }
+        }
+    }
+    .header-menuctrl {
+        position: relative;
+        float: left;
+        width: 300px;
+        height: 79px;
+        line-height: 32px;
+        text-align: left;
+        padding: 25px 20px;
+        a.icon-menu {
+            width: 38px;
+            height: 28px;
+            float: left;
+            color: #A6A6A6;
+            font-size:28px;
+            text-decoration: none;
+            &.sidebarClose:before {
+                content: "\e648" !important;
+            }
+        }
+        .breadcrumb {
+            background: none;
+            padding: 0;
+        }
+    }
+    .header-right{
+        float: right;
+        padding: 20px;
+        height: 80px;
+        line-height: 40px;
+        span {
+            float: left;
+            padding-left: 10px;
+            img {
+                float: left;
+                border-radius: 50%;
+                padding-right: 5px;
+                //width: 40px;
+                height: 40px;
+            }
+            em {
+                font-style: normal;
+            }
+            i{
+                font-size: 34px;
+                color: #6e6e6e;
+                vertical-align: middle;
+            }
+            a {
+                color: #6e6e6e;
+            }
+            .modifyPwd:before {
+                content: "\e646";
+            }
+            .help:before {
+                content: "\e644";
+            }
+            .loginOut:before {
+                content: "\e647";
+            }
+        }
+    }
+}
+
+
+//底部区域
+#footer {
+    background: #fff;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #999;
+    font-size: 12px;
+    padding-left: 260px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    transition: padding 0.5s;
+    &.sidebarClose {
+        padding-left: 100px;
+    }
+}
+
+.container-con {
+    position: relative;
+    //z-index: 2;
+    background: #eeeeee;
+    margin-bottom: 60px;
+}
+
+//侧边区域
+#side {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    height: 100%;
+    width: 241px;
+    border-right: 1px solid #e5e5e5;
+    background: #fff;
+    z-index: 1;
+    //transition: width 0.5s;
+    &.sidebarClose{
+        width: 80px;
+    }
+}
+
+.side-nav {
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    dl {
+        position: relative;
+        margin: 2px 0;
+    }
+    dt{
+        padding: 10px 0;
+        &:hover, &.active {
+            position: relative;
+            background: #f8f8f8;
+            &:before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                width: 3px;
+                height: 100%;
+                background: #f73B3B;
+            }
+        }
+        em {
+            font-style: normal;
+        }
+        a, span{
+            position: relative;
+            font-size: 14px;
+            color: #595959;
+            height: 24px;
+            line-height: 24px;
+            padding-left: 45px;
+            padding-right: 30px;
+            display: block;
+            text-decoration: none;
+            i.icon-nav{
+                position: absolute;
+                left: 15px;
+                top: 0;
+                color: #8C8A8A;
+                font-size: 20px;
+            }
+            i.icon-cret {
+                position: absolute;
+                right: 12px;
+                width: 15px;
+                height: 15px;
+            }
+        }
+        &.active a, &.active span {
+            i.icon-cret:before {
+                content: "\e617";
+            }
+        }
+    }
+    dd {
+        display: none;
+        &.hide {
+            display: none;
+        }
+        &.show {
+            display: block;
+        }
+        a {
+            position: relative;
+            display: block;
+            padding: 15px 0 15px 55px;
+            color: #595959;
+            &.item-main-nav {
+                display: none;
+            }
+            &.active, &:hover {
+                color: #f93b3b;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.side-nav dt a i.icon-nav, span i.icon-nav{
+    &.home:before {content: "\e63e" !important;}
+    &.store:before {content: "\e641" !important;}
+    &.right:before {content: "\e640" !important;}
+    &.activity:before {content: "\e639" !important;}
+    &.thread:before {content: "\e639" !important;}
+    &.card:before {content: "\e63b" !important;}
+    &.trade:before {content: "\e63d" !important;}
+    &.refund:before {content: "\e63f" !important;}
+    &.cashier:before {content: "\e63c" !important;}
+    &.data:before {content: "\e63a" !important;}
+    &.finance:before {content: "\e63a" !important;}
+}
+.sidebarClose .side-nav dt {
+    a em, a .icon-cret {
+        display: none;
+    }
+    a .icon-nav {
+        font-size: 30px;
+        left: 23px;
+    }
+}
+.sidebarClose .side-nav dd.show {
+    display: none !important;
+}
+.sidebarClose .side-nav dt:hover + dd, .sidebarClose .side-nav dd:hover {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 79px;
+    z-index: 2;
+    .item-main-nav, a {
+        display: block;
+    }
+    a {
+        width: 160px;
+        background: #fff;
+        padding-left: 20px;
+        border-left: 1px solid #e5e5e5;
+        border-right: 1px solid #e5e5e5;
+        &:last-child {
+            border-bottom: 1px solid #e5e5e5;
+        }
+    }
+    a.item-main-nav {
+        background: #f8f8f8;
+        border-top: 1px solid #e5e5e5;
+        border-left: 1px solid #f8f8f8;
+    }
+}
+
+//主区域
+#main {
+    margin: 100px 20px 0 260px;
+    position: relative;
+    background: #fff;
+    min-height: 500px;
+    transition: margin-left 0.5s;
+    &.sidebarClose {
+        margin-left: 100px;
+    }
+}
+#content {
+    padding: 20px;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "admix-ui-react": "git@gitlab.alibaba-inc.com:hongbang.lhb/admix-ui-react.git"
+  }<% if (appPath) { %>,
+  "appPath": "<%= appPath %>"<% } %>
+}

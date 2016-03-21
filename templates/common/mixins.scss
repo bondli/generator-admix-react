@@ -1,0 +1,365 @@
+@mixin clearfix() {
+    &:before,
+    &:after {
+        display: table; // 2
+        content: " "; // 1
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Box shadow
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+            box-shadow: $shadow;
+}
+
+// Border box
+@mixin border-box(){
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin flexbox(){
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin scrollable(){
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 单行省略号处理 */
+@mixin textEllipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* 多行省略号处理 */
+@mixin mTextEllipsis() {
+    //display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    white-space: normal;
+}
+
+@mixin align-self($as) {
+    -ms-flex-item-align: $as;
+    -webkit-align-self: $as;
+    align-self: $as;
+}
+
+@mixin align-items($ai) {
+    @if $ai == 'flex-start' {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        -webkit-align-items: 'flex-start';
+        align-items: 'flex-start';
+    }
+    @else if $ai == 'flex-end' {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        -webkit-align-items: 'flex-end';
+        align-items: 'flex-end';
+    }
+    @else {
+        -webkit-box-align: $ai;
+        -ms-flex-align: $ai;
+        -webkit-align-items: $ai;
+        align-items: $ai;
+    }
+}
+
+@mixin flex-shrink($fs) {
+    -webkit-flex-shrink: $fs;
+    -ms-flex: 0 $fs auto;
+    flex-shrink: $fs;
+}
+
+@mixin justify-content($jc) {
+    @if $jc == 'flex-start' {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        -webkit-justify-content: 'flex-start';
+        justify-content: 'flex-start';
+    }
+    @else if $jc == 'flex-end' {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: 'flex-end';
+        justify-content: 'flex-end';
+    }
+    @else if $jc == 'space-between' {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        -webkit-justify-content: 'space-between';
+        justify-content: 'space-between';
+    }
+    @else {
+        -webkit-box-pack: $jc;
+        -ms-flex-pack: $jc;
+        -webkit-justify-content: $jc;
+        justify-content: $jc;
+    }
+}
+
+// Gradients
+@mixin linear-gradient($color-from, $color-to) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(top, $color-from 0%, $color-to 100%);           // Chrome10+, Safari5.1+
+  background-image:    -moz-linear-gradient(top, $color-from 0%, $color-to 100%);           // FF3.6+
+  background-image:     -ms-linear-gradient(top, $color-from 0%, $color-to 100%);           // IE10+
+  background-image:      -o-linear-gradient(top, $color-from 0%, $color-to 100%);           // Opera 11.10+
+  background-image:         linear-gradient(to bottom, $color-from 0%, $color-to 100%);     // W3C
+}
+@mixin directional-gradient($color-from, $color-to, $deg: 45deg) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // Chrome10+, Safari5.1+
+  background-image:    -moz-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // FF3.6+
+  background-image:     -ms-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // IE10+
+  background-image:      -o-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // Opera 11.10+
+  background-image:         linear-gradient(45deg, $color-from 0%, $color-to 100%);     // W3C
+}
+
+// Encoded SVG Background
+@mixin encoded-svg-background($svg) {
+    background-image: url("data:image/svg+xml;charset=utf-8, #{$svg}");
+}
+
+// Transforms
+// --------------------------------------------------
+@mixin transform($transform...) {
+    -webkit-transform: $transform;
+        -ms-transform: $transform;
+            transform: $transform;
+}
+
+@mixin transform-origin($to...) {
+    -webkit-transform-origin: $to;
+            transform-origin: $to;
+}
+
+// Transitions
+// --------------------------------------------------
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+            transition: $transition;
+}
+@mixin transition-property($property...) {
+    -webkit-transition-property: $property;
+       -moz-transition-property: $property;
+            transition-property: $property;
+}
+@mixin transition-duration($duration...) {
+    -webkit-transition-duration: $duration;
+       -moz-transition-duration: $duration;
+            transition-duration: $duration;
+}
+@mixin transition-timing-function($function...) {
+    -webkit-transition-timing-function: $function;
+       -moz-transition-timing-function: $function;
+            transition-timing-function: $function;
+}
+
+@mixin translate3d($x, $y, $z) {
+    -webkit-transform: translate3d($x,$y,$z);
+            transform: translate3d($x,$y,$z);
+}
+
+
+// Animations
+// --------------------------------------------------
+@mixin animation-name($name) {
+    -webkit-animation-name: $name;
+       -moz-animation-name: $name;
+            animation-name: $name;
+}
+@mixin animation-duration($duration) {
+    -webkit-animation-duration: $duration;
+       -moz-animation-duration: $duration;
+            animation-duration: $duration;
+}
+@mixin animation-direction($direction) {
+    -webkit-animation-direction: $direction;
+       -moz-animation-direction: $direction;
+            animation-direction: $direction;
+}
+
+
+// Misc
+// --------------------------------------------------
+@mixin hairline($position, $color) {
+    @if $position == top {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: auto;
+            right: auto;
+            height: 1px;
+            width: 100%;
+            background-color: $color;
+            display: block;
+            z-index: 9;
+            @include transform-origin(50% 0);
+            html.pixel-ratio-2 & {
+                @include transform(scaleY(0.5));
+            }
+            html.pixel-ratio-3 & {
+                @include transform(scaleY(0.33));
+            }
+        }
+    }
+    @else if $position == left {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: auto;
+            right: auto;
+            width: 1px;
+            height: 100%;
+            background-color: $color;
+            display: block;
+            z-index: 9;
+            @include transform-origin(0 50%);
+            html.pixel-ratio-2 & {
+                @include transform(scaleX(0.5));
+            }
+            html.pixel-ratio-3 & {
+                @include transform(scaleX(0.33));
+            }
+        }
+    }
+    @else if $position == bottom {
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: auto;
+            top: auto;
+            height: 1px;
+            width: 100%;
+            background-color: $color;
+            display: block;
+            z-index: 9;
+            @include transform-origin(50% 100%);
+            html.pixel-ratio-2 & {
+                @include transform(scaleY(0.5));
+            }
+            html.pixel-ratio-3 & {
+                @include transform(scaleY(0.33));
+            }
+        }
+    }
+    @else if $position == right {
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            left: auto;
+            bottom: auto;
+            width: 1px;
+            height: 100%;
+            background-color: $color;
+            display: block;
+            z-index: 9;
+            @include transform-origin(100% 50%);
+            html.pixel-ratio-2 & {
+                @include transform(scaleX(0.5));
+            }
+            html.pixel-ratio-3 & {
+                @include transform(scaleX(0.33));
+            }
+        }
+    }
+}
+
+@mixin hairline-remove($position) {
+    @if $position == top {
+        &:before {
+            display: none;
+        }
+    }
+    @else if $position == left {
+        &:before {
+            display: none;
+        }
+    }
+    @else {
+        &:after {
+            display: none;
+        }
+    }
+}
+
+@mixin hairline-color($position, $color) {
+    @if $position == top {
+        &:before {
+            background-color: $color;
+        }
+    }
+    @else if $position == left {
+        &:before {
+            background-color: $color;
+        }
+    }
+    @else {
+        &:after {
+            background-color: $color;
+        }
+    }
+}
+
+
+// 响应式（基础的单位1rem对应的px值）
+html {
+    font-size : 20px;
+}
+
+@mixin min-screen($res){
+    @media only screen and ( min-width: $res )
+    {
+        @content;
+    }
+}
+
+@include min-screen(360px) {
+    html {font-size: 22.5px !important;}
+}
+@include min-screen(375px) {
+    html {font-size: 23.4375px !important;}
+}
+@include min-screen(401px) {
+    html {font-size: 25px !important;}
+}
+@include min-screen(414px) {
+    html {font-size: 25.875px !important;}
+}
+@include min-screen(428px) {
+    html {font-size: 26.75px !important;}
+}
+@include min-screen(481px) {
+    html {font-size: 30px !important;}
+}
+@include min-screen(569px) {
+    html {font-size: 35px !important;}
+}
+@include min-screen(640px) {
+    html {font-size: 40px !important;}
+}

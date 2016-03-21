@@ -1,0 +1,15 @@
+Description:
+    Creates a default web project
+
+Example:
+    yo admix-react
+
+    This will create:
+        gulpfile.js
+        bower.json
+        package.json
+        changelog.md
+        README.md
+
+        app
+        htmls

@@ -1,0 +1,11 @@
+Description:
+    Creates a new web page
+
+Example:
+    yo admix-react:page your-page-name
+
+    This will create:
+        htmls/you-page-name.html
+        app/pages/your-page-name.js
+        app/scss/your-page-name.scss
+        app/components/your-page-name/YourPageNameApp.js

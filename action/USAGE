@@ -1,0 +1,8 @@
+Description:
+    Creates a new action
+
+Example:
+    yo admix-react:action thing
+
+    This will create:
+        app/actions/thing.js

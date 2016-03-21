@@ -1,0 +1,8 @@
+Description:
+    Creates a new page's component
+
+Example:
+    yo admix-react:component pageName:thing
+
+    This will create:
+        app/components/pageName/thing.js

@@ -1,0 +1,66 @@
+//如果项目中没有特殊字体，请删除
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1425288648_466841.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/font_1425288648_466841.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/font_1425288648_466841.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/font_1425288648_466841.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/font_1425288648_466841.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+-webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+        box-sizing: content-box;
+}
+
+//colors
+$bodyBgColor: #eeeeee;
+$toolbarBgColor: #f8f8f8;
+$btnColor: #ff6600;
+$btnPressColor: #ff4400;
+$checkboxColor: #66668a;
+$borderColor: #dddddd;
+$fontColor: #31313b;
+$linkColor: #007aff;
+$labelColor: #999999;
+$tipsColor: #cccccc;
+$disabledColor: #afafb5;
+
+//reset
+html, body, ol, ul, li, p, h1, h2, button, input, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+}
+ol, ul {
+    list-style: none;
+}
+body {
+    font: 12px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: auto;
+    background: $bodyBgColor;
+    height: auto;
+    min-height: 100%;
+    color: $fontColor;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    color: $fontColor;
+    text-decoration: none;
+}
+
+#loadmore {
+    padding: 5px 0;
+    text-align: center;
+    color: $tipsColor;
+}
