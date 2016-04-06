@@ -87,7 +87,7 @@ a {
     .header-menuctrl {
         position: relative;
         float: left;
-        width: 300px;
+        width: 350px;
         height: 79px;
         line-height: 32px;
         text-align: left;
@@ -285,10 +285,10 @@ a {
     &.finance:before {content: "\e63a" !important;}
 }
 .sidebarClose .side-nav dt {
-    a em, a .icon-cret {
+    a em, a .icon-cret, span em, span .icon-cret {
         display: none;
     }
-    a .icon-nav {
+    a .icon-nav, span .icon-nav {
         font-size: 30px;
         left: 23px;
     }

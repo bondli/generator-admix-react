@@ -96,9 +96,9 @@ var Sidebar = React.createClass({
                         <dd className={item.isCurrent==true ? 'show' : ''}>
                             <a className="item-main-nav" href={item.url ? item.url : 'javascript:;'}>{item.title}</a>
                             {
-                                item.sublist.map(function(sub){
+                                item.subList && item.subList.map(function(sub){
                                     return (
-                                        <a href={sub.url}>{sub.title}</a>
+                                        <a key={sub.title} href={sub.url}>{sub.title}</a>
                                     )
                                 })
                             }
