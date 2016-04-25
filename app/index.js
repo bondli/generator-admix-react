@@ -112,7 +112,7 @@ Generator.prototype.packageFiles = function packageFiles() {
 
   fs.mkdir('htmls/data');
 
-  this.template('common.scss', 'app/components/common/common.scss');
+  this.template(this.env.options.pt + '/common.scss', 'app/components/common/common.scss');
   this.template('mixins.scss', 'app/components/common/mixins.scss');
   this.template(this.env.options.pt + '/apimap.js', 'app/components/common/apimap.js');
   if(this.env.options.pt == 'pcweb'){

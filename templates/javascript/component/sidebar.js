@@ -1,10 +1,10 @@
 /**
  * @ngdoc filter
- * @name <%= appname %>.component:sidebar
+ * @name sellercenter_content.component:sidebar
  * @function
  * @description
  * # sidebar
- * component in the <%= appname %>.
+ * component in the sellercenter_content.
  */
 var Sidebar = React.createClass({
 
@@ -57,55 +57,48 @@ var Sidebar = React.createClass({
         var menuData = this.state.menuData;
         var menus = [];
         //var me = this;
+        var curFile = (window.location.href).substring((window.location.href).lastIndexOf('/')+1).replace('.html', '');
 
         for(var i in menuData){
             var item = menuData[i];
             if(item.url && item.url.length){
-                menus.push(
-                    <dl key={item.title}>
-                        <dt className={item.isCurrent==true ? 'active' : ''}>
-                            <a href={item.url}>
-                                <i className={'icon icon-nav ' + item.iconCls}></i>
-                                <em className="nav-name">{item.title}</em>
-                                <i className="icon icon-cret" onClick={this.switchMemu.bind(null,item)}></i>
-                            </a>
-                        </dt>
-                        <dd className={item.isCurrent==true ? 'show' : ''}>
-                            <a className="item-main-nav" href={item.url ? item.url : 'javascript:;'}>{item.title}</a>
-                            {
-                                item.subList && item.subList.map(function(sub){
-                                    return (
-                                        <a key={sub.title} href={sub.url}>{sub.title}</a>
-                                    )
-                                })
-                            }
-                        </dd>
-                    </dl>
+                var dt = (
+                    <dt className={item.isCurrent==true ? 'active' : ''}>
+                        <a href={item.url}>
+                            <i className={'icon icon-nav ' + item.iconCls}></i>
+                            <em className="nav-name">{item.title}</em>
+                            <i className="icon icon-cret" onClick={this.switchMemu.bind(null,item)}></i>
+                        </a>
+                    </dt>
                 );
             }
             else {
-                menus.push(
-                    <dl key={item.title}>
-                        <dt className={item.isCurrent==true ? 'active' : ''}>
-                            <span onClick={this.switchMemu.bind(null,item)} style={{cursor:'pointer'}}>
-                                <i className={'icon icon-nav ' + item.iconCls}></i>
-                                <em className="nav-name">{item.title}</em>
-                                <i className="icon icon-cret" onClick={this.switchMemu.bind(null,item)}></i>
-                            </span>
-                        </dt>
-                        <dd className={item.isCurrent==true ? 'show' : ''}>
-                            <a className="item-main-nav" href={item.url ? item.url : 'javascript:;'}>{item.title}</a>
-                            {
-                                item.subList && item.subList.map(function(sub){
-                                    return (
-                                        <a key={sub.title} href={sub.url}>{sub.title}</a>
-                                    )
-                                })
-                            }
-                        </dd>
-                    </dl>
+                var dt = (
+                    <dt className={item.isCurrent==true ? 'active' : ''}>
+                        <span onClick={this.switchMemu.bind(null,item)} style={{cursor:'pointer'}}>
+                            <i className={'icon icon-nav ' + item.iconCls}></i>
+                            <em className="nav-name">{item.title}</em>
+                            <i className="icon icon-cret" onClick={this.switchMemu.bind(null,item)}></i>
+                        </span>
+                    </dt>
                 );
             }
+
+            menus.push(
+                <dl key={item.title}>
+                    {dt}
+                    <dd className={item.isCurrent==true ? 'show' : ''}>
+                        <a className="item-main-nav" href={item.url ? item.url : 'javascript:;'}>{item.title}</a>
+                        {
+                            item.subList && item.subList.map(function(sub){
+                                return (
+                                    <a key={sub.title} href={sub.url} className={sub.url.indexOf(curFile)>-1 ? 'active' : ''}>{sub.title}</a>
+                                )
+                            })
+                        }
+                    </dd>
+                </dl>
+            );
         }
 
         return (

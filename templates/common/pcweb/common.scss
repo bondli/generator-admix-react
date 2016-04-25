@@ -1,0 +1,28 @@
+.page {
+    border: 1px solid #ddd;
+    min-height: 500px;
+}
+
+.error-container {
+    padding: 200px;
+}
+
+.edit-form {
+    padding: 50px 0 50px 100px;
+    .submit-container {
+        margin-left: 120px;
+    }
+}
+
+.search-area {
+    padding: 20px;
+    position: relative;
+    .new {
+        position: absolute;
+        right: 20px;
+        top: 30px;
+    }
+}
+
+.table-area {
+}

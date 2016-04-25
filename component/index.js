@@ -17,8 +17,14 @@ Generator.prototype.createModFiles = function createModFiles() {
     //在页面中创建模块
     var pageName = pathArr[0];
     var compName = pathArr[1];
+
+    var tmpl = 'component/component.js';
+    var componentName = compName.toLowerCase();
+    if(componentName == 'datalist' || componentName == 'searchform' || componentName == 'dataform' || componentName == 'datainfo'){
+      tmpl = 'component/example/'+ componentName +'.js';
+    }
     this.appTemplate(
-      'component/component.js',
+      tmpl,
       path.join('components', pageName, compName + '.js')
     );
     return;

@@ -45,6 +45,9 @@ var Utils = {
         if(typeof date === 'string'){
             date = this.strToDate(date);
         }
+        if(typeof date === 'number'){
+            date = new Date(date);
+        }
         var year = date.getFullYear(),
             month = date.getMonth() + 1,
             day = date.getDate();

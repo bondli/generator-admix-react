@@ -11,6 +11,7 @@ var Generator = module.exports = function Generator() {
   this.appname = path.basename(process.cwd());
   this.scriptAppName = this._.camelize(this.appname) + utils.appName(this);
 
+  this.name = this.name.replace('.html', '');
   this.cameledName = this._.camelize(this.name);
   this.classedName = this._.classify(this.name);
 
