@@ -32,12 +32,7 @@ var <%= compName %> = React.createClass({
             cityId : '',
             mallId : '',
             startTime : '',
-            endTime : '',
-            toast: {
-                type: 'error',
-                msg: '',
-                show: false
-            }
+            endTime : ''
         };
     },
 
@@ -226,12 +221,7 @@ var <%= compName %> = React.createClass({
         }
         this.setState({
             showBeforeAction : true,
-            actionTips : tips,
-            toast : {
-                type: 'error',
-                msg: '',
-                show: false
-            }
+            actionTips : tips
         });
     },
 
@@ -253,13 +243,9 @@ var <%= compName %> = React.createClass({
             //完成需要重新拉取数据
             if(sucRet.errCode == 0){
                 me.setState({
-                    showBeforeAction : false,
-                    toast: {
-                        type: 'success',
-                        msg: '操作成功，该权益已' + me._actionNameMap[item.sticky],
-                        show: true
-                    }
+                    showBeforeAction : false
                 });
+                Toast.show('success', '操作成功，该权益已' + me._actionNameMap[item.sticky]);
                 me._needActionItem = null;
                 setTimeout(function(){
                     me._getDataList();
@@ -267,23 +253,15 @@ var <%= compName %> = React.createClass({
             }
             else {
                 me.setState({
-                    showBeforeAction : false,
-                    toast: {
-                        type: 'error',
-                        msg: '操作失败：' + (sucRet.errMsg || '接口异常'),
-                        show: true
-                    }
+                    showBeforeAction : false
                 });
+                Toast.show('error', '操作失败：' + (sucRet.errMsg || '接口异常'));
             }
         }, function(errRet){
             me.setState({
-                showBeforeAction : false,
-                toast: {
-                    type: 'error',
-                    msg: '操作失败：' + JSON.stringify(errRet),
-                    show: true
-                }
+                showBeforeAction : false
             });
+            Toast.show('error', '操作失败：' + JSON.stringify(errRet));
         });
     },
 
@@ -308,7 +286,6 @@ var <%= compName %> = React.createClass({
                 <Table columnsAlign="tl" columns={this.columns} dataStatus={this.state.code} dataList={this.state.data} dataMsg={this.state.msg} bordered={false} hover striped handleAction={this.handleAction} />
                 <Pagination current={this.state.pageNo} total={this.state.total} pageSize={this.state.pageSize} onChange={this.doSearchByPage} />
                 <Dialog type="confirm" show={this.state.showBeforeAction} title="温馨提示" desc={this.state.actionTips} onOk={this.onActionOk} onCancel={this.onActionCancel} />
-                <Toast type={this.state.toast.type} msg={this.state.toast.msg} show={this.state.toast.show} />
             </div>
         )
     }

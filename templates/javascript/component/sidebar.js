@@ -57,7 +57,7 @@ var Sidebar = React.createClass({
         var menuData = this.state.menuData;
         var menus = [];
         //var me = this;
-        var curFile = (window.location.href).substring((window.location.href).lastIndexOf('/')+1).replace('.html', '');
+        var curFile = (window.location.pathname).substring((window.location.pathname).lastIndexOf('/')+1).replace('.html', '');
 
         for(var i in menuData){
             var item = menuData[i];

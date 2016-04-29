@@ -25,10 +25,7 @@ var <%= compName %> = React.createClass({
         return {
             code: 'loading',
             data: [],
-            btnLoading: false,
-            toastType: 'error',
-            toastMsg: '',
-            toastShow: false
+            btnLoading: false
         };
     },
 
@@ -121,11 +118,9 @@ var <%= compName %> = React.createClass({
         for(var i in formValid){
             if(formValid[i].formValid === false){
                 this.setState({
-                    btnLoading: false,
-                    toastShow: true,
-                    toastType: 'error',
-                    toastMsg: formValid[i].invalidMsg
+                    btnLoading: false
                 });
+                Toast.show('error', formValid[i].invalidMsg);
                 return;
             }
         }
@@ -149,30 +144,24 @@ var <%= compName %> = React.createClass({
         }, function(sucRet){
             if(sucRet.errCode == 0){
                 me.setState({
-                    btnLoading: true,
-                    toastShow: true,
-                    toastType: 'success',
-                    toastMsg: '创建卡成功，3秒后跳转到卡列表页面'
+                    btnLoading: true
                 });
+                Toast.show('success', '创建卡成功，3秒后跳转到卡列表页面');
                 setTimeout(function(){
                     me.gotoList();
                 }, 3000);
             }
             else {
                 me.setState({
-                    btnLoading: false,
-                    toastShow: true,
-                    toastType: 'error',
-                    toastMsg: '创建卡失败：' + (sucRet.errMsg || '接口异常')
+                    btnLoading: false
                 });
+                Toast.show('error', '创建卡失败：' + (sucRet.errMsg || '接口异常'));
             }
         },function(errRet){
             me.setState({
-                btnLoading: false,
-                toastShow: true,
-                toastType: 'error',
-                toastMsg: '创建卡失败：' + JSON.stringify(errRet)
+                btnLoading: false
             });
+            Toast.show('error', '创建卡失败：' + JSON.stringify(errRet));
         });
     },
 
@@ -199,11 +188,7 @@ var <%= compName %> = React.createClass({
      * @return {[type]}     [description]
      */
     onImageError : function (msg) {
-        this.setState({
-            toastShow: true,
-            toastType: 'error',
-            toastMsg: msg
-        });
+        Toast.show('error', msg);
     },
 
     /**
@@ -296,8 +281,6 @@ var <%= compName %> = React.createClass({
                     <Button type="primary" needLoading={true} loading={this.state.btnLoading} text="提交" onClick={this.saveData} />
                     <Button type="default" text="返回" onClick={this.gotoList} />
                 </div>
-
-                <Toast type={this.state.toastType} msg={this.state.toastMsg} show={this.state.toastShow} />
             </div>
         )
     }
