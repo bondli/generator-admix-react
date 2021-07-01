@@ -3,6 +3,8 @@
 
 > Yeoman generator for admix project - lets you quickly set up a project with sensible defaults and best practices.
 
+test test 
+
 **构建成功后的工程目录结构说明：**
 
 ```
